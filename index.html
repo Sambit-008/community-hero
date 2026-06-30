@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Hero</title>
+    <script>
+      // Safeguard for fetch property setter in sandboxed iframe environments
+      (function() {
+        try {
+          var target = window;
+          var desc = Object.getOwnPropertyDescriptor(target, 'fetch');
+          if (!desc) {
+            target = Object.getPrototypeOf(window);
+            desc = Object.getOwnPropertyDescriptor(target, 'fetch');
+          }
+          if (desc && desc.configurable) {
+            var originalFetch = window.fetch;
+            var currentFetch = originalFetch;
+            Object.defineProperty(window, 'fetch', {
+              configurable: true,
+              enumerable: true,
+              get: function() {
+                return currentFetch;
+              },
+              set: function(v) {
+                currentFetch = v;
+              }
+            });
+          } else {
+            // If window.fetch is read-only and non-configurable, define window.global
+            // with a shadow fetch property to intercept third-party polyfill assignments like global.fetch = ...
+            var customGlobal = Object.create(window);
+            var customFetch = window.fetch;
+            Object.defineProperty(customGlobal, 'fetch', {
+              get: function() { return customFetch; },
+              set: function(val) { customFetch = val; },
+              configurable: true,
+              enumerable: true
+            });
+            window.global = customGlobal;
+          }
+        } catch (e) {
+          console.warn("Fetch safeguard initialization warning:", e);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

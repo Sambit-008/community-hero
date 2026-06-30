@@ -1,0 +1,9 @@
+{
+  "name": "Community Hero",
+  "description": "An AI-powered platform where citizens can report and verify community issues like potholes, garbage dumping, and broken streetlights, automatically classified and mapped.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
