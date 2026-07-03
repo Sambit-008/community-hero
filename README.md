@@ -254,7 +254,7 @@ SQLite Database
 
 ## 🧠 AI Urban Intelligence & Pattern Audits
 
-![Urban Intelligence](screenshots/urban-intelligence-audits.png)
+![Urban Intelligence](screenshots/ai-urban-intelligence-pattern-audits.png)
 
 ---
 
