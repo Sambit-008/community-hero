@@ -387,7 +387,7 @@ By combining AI, geospatial visualization, and intelligent analytics, the platfo
 
 # 📄 License
 
-This project was developed for the Google AI Hackathon.
+This project was developed for the Google AI Studio Hackathon.
 
 It is intended for educational, demonstration, and portfolio purposes.
 
